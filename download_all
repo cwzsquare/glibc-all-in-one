@@ -1,0 +1,21 @@
+#!/bin/sh
+# 读取文件的每一行
+while IFS= read -r line; do
+  # 跳过空行
+  if [ -z "$line" ]; then
+    continue
+  fi
+
+  # 执行download命令，将每一行作为第一个参数
+  ./download "$line"
+done < "./list"
+# 读取文件的每一行
+while IFS= read -r line; do
+  # 跳过空行
+  if [ -z "$line" ]; then
+    continue
+  fi
+
+  # 执行download命令，将每一行作为第一个参数
+  ./download_old "$line"
+done < "./old_list"
